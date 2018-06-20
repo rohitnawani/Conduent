@@ -1,6 +1,6 @@
-<?php 
+<?php
 
-	$sql = "SELECT * FROM `wordcloud` ORDER BY `size` DESC";
+	$sql = "SELECT * FROM `data_wordcloud` ORDER BY `size` DESC";
 	$result = $conn->query($sql);
 	$results = [];
 	if ($result->num_rows > 0) {

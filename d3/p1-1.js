@@ -1,6 +1,6 @@
 wordCloudData.forEach(function(d){
     d.word = d.word;
-    d.size = Math.ceil(d.size/1000000);
+    d.size = d.size;
     d.source = d.source;
     d.date = new Date(d.date+" EST");
     d.label = d.label;
@@ -26,7 +26,7 @@ function renderWordCloud(){
     }else{
         labelFilteredData = wordCloudData;
     }
-    
+
     var dateFilteredData = [];
     start_date = new Date(start_date+" EST");
     end_date = new Date(end_date+" EST");
@@ -57,7 +57,7 @@ function aggregator(entryPoint){
     return d3.nest()
       .key(function(d) { return d.word; })
       .rollup(function(v) { return d3.sum(v, function(d) { return d.size; }); })
-      .entries(entryPoint);  
+      .entries(entryPoint);
 }
 
 function filter(option,data){
@@ -66,7 +66,7 @@ function filter(option,data){
        if(data[i].source == option){
             filteredData.push(data[i]);
        }
-    }     
+    }
     return filteredData;
 }
 
@@ -79,4 +79,3 @@ function aggregateData(group){
 }
 
 renderWordCloud();
-
